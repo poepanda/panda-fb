@@ -47,3 +47,8 @@ You can add the addition permissions in the text fields
 
 ###Get the results :apple:
 ![Open panda-fb](https://github.com/poepanda/panda-fb/raw/master/docs/images/result.png "Open the app")
+
+### Check the token 
+Copy your token and go to Facebook Token Debug tool (https://developers.facebook.com/tools/debug/accesstoken/)
+![Open panda-fb](https://github.com/poepanda/panda-fb/raw/master/docs/images/debug.png "Open the app")
+
