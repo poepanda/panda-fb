@@ -14,6 +14,8 @@
 
 `npm install`
 
+`bower install`
+
 ###3. Configure it!
 
 Open config.js and you will see:
