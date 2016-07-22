@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<button onclick="javascript:go()">Get access token</button>
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1189014107789724',
+      xfbml      : true,
+      version    : 'v2.7'
+    });
+
+    FB.getLoginStatus(function(response) {
+	  	if (response.status === 'connected') {
+	    	// the user is logged in and has authenticated your
+		    // app, and response.authResponse supplies
+		    // the user's ID, a valid access token, a signed
+		    // request, and the time the access token 
+		    // and signed request each expire
+		    var uid = response.authResponse.userID;
+		    var accessToken = response.authResponse.accessToken;
+		    console.log(accessToken);
+		  } else {
+		    // the user isn't logged in to Facebook.
+		  }
+	 });
+  };
+
+
+
+  window.go = function() {
+    FB.login(function(){}, {scope: 'read_insights'});
+  };
+
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+    
+This code will load a
+  
+</html>

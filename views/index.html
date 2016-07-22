@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Panda FB</title>
+
+  <!-- Material deisgn -->
+  <link rel="stylesheet" href="/bower/material-design-lite/material.min.css">
+  <script src="/bower/material-design-lite/material.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  <link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <div class="full-card mdl-card mdl-shadow--2dp">
+    <div class="mdl-card__title">
+      <h2 class="mdl-card__title-text">Select Permissions</h2>
+    </div>
+    <div class="mdl-card__supporting-text">
+      {% for p in perms %}
+        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-{{ loop.index }}">
+          <input type="checkbox" id="checkbox-{{ loop.index }}" class="mdl-checkbox__input perm-check" value="{{ p }}">
+          <span class="mdl-checkbox__label">{{ p }}</span>
+        </label>
+      {% endfor %}
+      <div class="mdl-textfield mdl-js-textfield" style="width: 100%;">
+        <input class="mdl-textfield__input" type="text" id="add-perm">
+        <label class="mdl-textfield__label" for="add-perm">Add Permision (Ex: user_photos, user_posts, ...)</label>
+      </div>
+    </div>
+    <div class="mdl-card__actions mdl-card--border">
+      <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
+              onclick="javascript:getAccessToken()">GET TOKEN</button>
+    </div>
+    
+  </div>
+
+  <div class="full-card mdl-card mdl-shadow--2dp">
+    <div class="mdl-card__title">
+      <h2 class="mdl-card__title-text">Short Term Access Token</h2>
+    </div>
+    <div class="mdl-card__supporting-text break-word short-term-token" data-token-load>
+      Please select permission and click GET TOKEN!
+    </div>
+    <div class="mdl-card__menu">
+      <button id="short-term-clipboard" class="short-term-clipboard mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect short-term-token-copy" onclick="javascript:copyToClipboard('.short-term-clipboard')">
+        <i class="material-icons">input</i>
+      </button>
+      <div class="mdl-tooltip" for="short-term-clipboard">
+        Copy
+      </div>
+    </div>
+  </div>
+
+  <div class="full-card mdl-card mdl-shadow--2dp">
+    <div class="mdl-card__title">
+      <h2 class="mdl-card__title-text">Long Term Access Token</h2>
+    </div>
+    <div class="mdl-card__supporting-text break-word long-term-token" data-token-load>
+      Please select permission and click GET TOKEN!
+    </div>
+    <div class="mdl-card__menu">
+      <button id="long-term-clipboard" class="mdl-button long-term-clipboard mdl-button--icon mdl-js-button mdl-js-ripple-effect long-term-token-copy" data-clipboard-text="" onclick="javascript:copyToClipboard('.long-term-clipboard')">
+        <i class="material-icons">input</i>
+      </button>
+      <div class="mdl-tooltip" for="long-term-clipboard">
+        Copy
+      </div>
+    </div>
+  </div>
+
+
+  <div class="full-card mdl-card mdl-shadow--2dp">
+    <div class="mdl-card__title">
+      <h2 class="mdl-card__title-text">Account - Page Access Tokens</h2>
+    </div>
+    <div class="mdl-card__supporting-text break-word acc-access-token-summary" data-token-load>
+      Please select permission and click GET TOKEN! 
+    </div>
+  </div>
+  <table class="mdl-data-table mdl-data-table--selectable mdl-shadow--2dp">
+    <thead>
+      <tr>
+        <th class="mdl-data-table__cell--non-numeric">Name</th>
+        <th>ID</th>
+        <th>Token</th>
+      </tr>
+    </thead>
+    <tbody class="acc-access-token">
+    </tbody>
+  </table>
+
+  <!-- TOAST HOLDER -->
+  <div id="toast-holder" class="mdl-js-snackbar mdl-snackbar">
+    <div class="mdl-snackbar__text"></div>
+    <button class="mdl-snackbar__action" type="button"></button>
+  </div>
+
+<script type="text/javascript" src="bower/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="bower/clipboard/dist/clipboard.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

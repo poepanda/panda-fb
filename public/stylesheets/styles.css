@@ -1,0 +1,33 @@
+body {
+	background: #cfcfcf;
+}
+label {
+  display: block;
+  padding-bottom: 8px;
+}
+
+.break-word {
+	word-wrap: break-word;
+}
+
+.full-card {
+	width: 90%;
+	margin: auto;
+}
+
+.mdl-card {
+	margin-top: 12px;
+	min-height: auto;
+}
+
+.token-loading {
+	display: block;
+	margin: auto;
+	width: 64px;
+}
+
+table {
+	width: 90%;
+	margin: auto;
+	table-layout: fixed;
+}
