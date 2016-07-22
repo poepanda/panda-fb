@@ -1,6 +1,10 @@
 #PANDA FB
 
-##Here we go! Let's get some permanent access token for our pages
+##Here we go! Let's get some permanent access tokens for our pages
+
+##Requirement
+
+- Nodejs :smile: :thumbsup: 
 
 ##How to install?
 
